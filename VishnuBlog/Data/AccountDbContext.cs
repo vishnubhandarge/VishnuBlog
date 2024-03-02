@@ -11,7 +11,7 @@ namespace VishnuBlog.Data
         }
 
         private DbSet<RegisterUser> Register {  get; set; }
-        private DbSet<UserLogin> UserLogin { get; set; }
+        private DbSet<UserLogin> Login { get; set; }
     }
 
    

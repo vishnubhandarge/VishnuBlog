@@ -27,6 +27,7 @@ namespace VishnuBlog.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public async Task<IActionResult> Register(RegisterUser model)
         {
@@ -54,7 +55,7 @@ namespace VishnuBlog.Controllers
         [HttpGet]
         public async Task<IActionResult> Login()
         {
-            return View();
+            return View("Login");
         }
 
         [HttpPost]
@@ -67,7 +68,7 @@ namespace VishnuBlog.Controllers
                 if (result.Succeeded)
                 {
                     // Handle successful login
-                    return RedirectToAction(nameof(HomeController.Index), "Home");
+                    return RedirectToAction(nameof(AccountController.Index), "Account");
                 }
                 else
                 {
@@ -77,7 +78,11 @@ namespace VishnuBlog.Controllers
                 }
             }
         return View(model);
-
+        }
+        public async Task<IActionResult> Logout()
+        {
+            await signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Home");
         }
     }
 }

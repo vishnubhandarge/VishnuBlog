@@ -14,6 +14,7 @@ namespace VishnuBlog.Models
         public string Password { get; set; }
 
         [Required]
+        [Display(Name ="Remember Me")]
         public bool RememberMe { get; set; }
     }
 }
